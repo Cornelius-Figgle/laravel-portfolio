@@ -20,13 +20,13 @@ Route::get('/', function () {
     return view('home', ['occurrance' => occurrance()]);
 });
 
-// Route::get('projects', function () {
-//     return view('projects', ['occurrance' => occurrance()]);
-// });
+Route::get('/projects', function () {
+    return view('projects', ['occurrance' => occurrance()]);
+});
 
-// Route::get('/contact', function () {
-//     return view('contact', ['occurrance' => occurrance()]);
-// });
+Route::get('/contact', function () {
+    return view('contact', ['occurrance' => occurrance()]);
+});
 
 Route::get('/welcome', function () {
     return view('welcome');

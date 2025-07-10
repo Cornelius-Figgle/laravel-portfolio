@@ -50,7 +50,14 @@
     </head>
     <body class="bg-bg text-text">
         <!-- Navigation bar (dynamically generated) -->
-        <div x-data="{ pages: [['Home', '/'], ['Projects', '/projects'], ['Contact', '/contact']] }" class="flex flex-row flex-1 gap-10 m-5 p-5 bg-fg justify-start">
+        <div  class="flex flex-row flex-1 gap-10 m-5 p-5 bg-fg justify-start" x-data="{
+            pages: [
+                ['Home', '/'],
+                ['Projects', '/projects'],
+                ['Contact', '/contact']
+            ]
+        }">
+
             <template x-for="[title, route] in pages">
                 <div x-data="locationIndicator" class="hover:text-accent-2 transition duration-200 ease-in-out hover:-translate-y-1">
                     <a :href="route" :class="getUnderline(route)" x-text="title"></a>
@@ -58,7 +65,8 @@
             </template>
         </div>
 
-       {{ $slot }}
+        <!-- Main page content -->
+        {{ $slot }}
 
         <div class="text-center p-5 text-fg">
             <p>Hello World ({{ $occurrance }})?</p>
