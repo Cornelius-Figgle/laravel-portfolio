@@ -10,8 +10,6 @@ It is hosted on ____ and available [here]().
 
 1. I recommend that you create a dedicated WSL instance/LXC container/Linux VM for this. I personally use Debian, but the programs and commands should be adaptable to any distro.
 
-<br>
-
 2. Install the system packages and enable the services
 
 ```bash
