@@ -23,12 +23,10 @@
 
         <script>
             Alpine.data('locationIndicator', () => ({
-                isUnderlined: false,
-                init() {
-                    this.isUnderlined = window.location.pathname == this.$refs.anchor.getAttribute('href')                    
-                },
-                getUnderline() {
-                    return this.isUnderlined ? 'underline decoration-double' : 'no-underline';
+                getUnderline(route) {
+                    let isUnderlined = window.location.pathname == route                  
+
+                    return isUnderlined ? 'underline decoration-double' : 'no-underline';
                 }
             }))
 
@@ -49,34 +47,37 @@
         </script>
     </head>
     <body class="bg-bg text-text">
-        <!-- Navigation bar -->
-        <div class="flex flex-row flex-1 gap-10 m-5 p-5 bg-fg justify-start">
-            <div x-data="locationIndicator" class="hover:text-accent-2 transition duration-200 ease-in-out hover:-translate-y-1">
-                <a x-ref="anchor" :class="getUnderline" href="/">Home</a>
-            </div>
-            <div x-data="locationIndicator"class="hover:text-accent-2 transition duration-200 ease-in-out hover:-translate-y-1">
-                <a x-ref="anchor" :class="getUnderline" href="/projects">Projects</a>
-            </div>
-            <div x-data="locationIndicator"class="hover:text-accent-2 transition duration-200 ease-in-out hover:-translate-y-1">
-                <a x-ref="anchor" :class="getUnderline" href="/contact">Contact</a>
-            </div>
+        <!-- Navigation Bar (dynamically generated) -->
+        <div x-data="{ pages: [['Home', '/'], ['Projects', '/projects'], ['Contact', '/contact']] }" class="flex flex-row flex-1 gap-10 m-5 p-5 bg-fg justify-start">
+            <template x-for="[title, route] in pages">
+                <div x-data="locationIndicator" class="hover:text-accent-2 transition duration-200 ease-in-out hover:-translate-y-1">
+                    <a :href="route" :class="getUnderline(route)" x-text="title"></a>
+                </div>
+            </template>
         </div>
 
         <!-- First Strip -->
-        <div class="flex flex-row m-5 p-5 justify-start">
+        <div class="flex flex-row m-5 p-5 gap-5 justify-start">
             <!-- LHS -->
             <div class="basis-1/2">
                 <!-- First Paragraph -->
                 <p class="mb-5">Hello, I am <span class="text-accent-3">Max Harrison</span>, a Maths and Computer Science student from the UK.</p>
 
-                <!-- Skills Cards -->
+                <!-- Skills Cards (dynamically generated) -->
                 <div x-data="cardListGenerator(['Python','Linux','Homelab','Laravel','PyQT','Virtualisation','Mathematics'])">
                     <div class="flex gap-2 flex-row flex-wrap" x-ref="divider" x-html="generateHtml"></div>
                 </div>
             </div>
             <!-- RHS -->
             <div class="basis-1/2">
-                <img src="assets/20240718_212709.jpg" alt="">
+                <div class="relative">
+                    <img src="assets/20240718_212709.jpg" alt="Photograph of Sand Bay at dusk.">
+                    <div class="absolute md:bottom-5 md:left-5 md:text-sm bottom-2 left-2 text-xs">
+                        <p>Taken by me</p>
+                        <p>Samsung S21 Plus</p>
+                        <p>Sand Bay at dusk<p>
+                    </div>
+                </div>
             </div>
         </div>
 

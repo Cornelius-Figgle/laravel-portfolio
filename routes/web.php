@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+function occurrance() {
     $nf = new NumberFormatter('en', NumberFormatter::SPELLOUT);
 
     $occurrance_file = fopen(__DIR__.'/../public/occurance.txt', 'r');
@@ -13,10 +13,20 @@ Route::get('/', function () {
     fwrite($occurrance_file, $occurrance);
     fclose($occurrance_file);
 
-    $occurrance = $nf->format($occurrance);
+    return $nf->format($occurrance);
+}
 
-    return view('root', ['occurrance' => $occurrance]);
+Route::get('/', function () {
+    return view('home', ['occurrance' => occurrance()]);
 });
+
+// Route::get('projects', function () {
+//     return view('projects', ['occurrance' => occurrance()]);
+// });
+
+// Route::get('/contact', function () {
+//     return view('contact', ['occurrance' => occurrance()]);
+// });
 
 Route::get('/welcome', function () {
     return view('welcome');
