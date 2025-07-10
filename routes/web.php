@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 function occurrance() {
@@ -26,6 +27,11 @@ Route::get('/projects', function () {
 
 Route::get('/contact', function () {
     return view('contact', ['occurrance' => occurrance()]);
+});
+
+Route::post('/contact', function (Request $request) {
+    // https://laravel.com/docs/12.x/mail#introduction
+    dd($request);
 });
 
 Route::get('/welcome', function () {
