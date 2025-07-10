@@ -39,7 +39,7 @@
                     for (const term of terms) {
                         // Hard coding possible Tailwind classes so that the relavent CSS is compiled 
                         // text-accent-1 text-accent-2 text-accent-3 text-text
-                        this.generatedHtml += `<div class="text-accent-${(terms.indexOf(term)%3)+1} border border-solid p-2 border-text transition duration-200 ease-in-out hover:-translate-y-1">${term}</div>`
+                        this.generatedHtml += `<div class="text-accent-${(terms.indexOf(term)%3)+1} border border-solid p-2 border-text hover:text-text transition duration-200 ease-in-out hover:-translate-y-1">${term}</div>`
                     }
                 },
                 generateHtml() {
