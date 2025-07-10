@@ -31,6 +31,21 @@
                     return this.isUnderlined ? 'underline decoration-double' : 'no-underline';
                 }
             }))
+
+            Alpine.data('cardListGenerator', (terms) => ({
+                init() {
+                    this.generatedHtml = ''
+
+                    for (const term of terms) {
+                        // Hard coding possible Tailwind classes so that the relavent CSS is compiled 
+                        // text-accent-1 text-accent-2 text-accent-3 text-text
+                        this.generatedHtml += `<div class="text-accent-${(terms.indexOf(term)%3)+1} border border-solid p-2 border-text transition duration-200 ease-in-out hover:-translate-y-1">${term}</div>`
+                    }
+                },
+                generateHtml() {
+                    return this.generatedHtml;
+                }
+            }))
         </script>
     </head>
     <body class="bg-bg text-text">
@@ -47,25 +62,26 @@
             </div>
         </div>
 
+        <!-- First Strip -->
         <div class="flex flex-row m-5 p-5 justify-start">
+            <!-- LHS -->
             <div class="basis-1/2">
+                <!-- First Paragraph -->
                 <p class="mb-5">Hello, I am <span class="text-accent-3">Max Harrison</span>, a Maths and Computer Science student from the UK.</p>
 
-                <div class="relative flex flex-col gap-2">
-                    <span class="absolute">Python</span>
-                    <span class="absolute">Linux</span>
-                    <span class="absolute">Homelab</span>
-                    <span class="absolute">Laravel</span>
-                    <span class="absolute">PyQT</span>
+                <!-- Skills Cards -->
+                <div x-data="cardListGenerator(['Python','Linux','Homelab','Laravel','PyQT','Virtualisation','Mathematics'])">
+                    <div class="flex gap-2 flex-row flex-wrap" x-ref="divider" x-html="generateHtml"></div>
                 </div>
             </div>
+            <!-- RHS -->
             <div class="basis-1/2">
                 <img src="assets/20240718_212709.jpg" alt="">
             </div>
         </div>
 
         <div class="text-center p-5 text-fg">
-            Hello World ({{ $occurrance }})?
+            <p>Hello World ({{ $occurrance }})?</p>
         </div>
     </body>
 </html>
