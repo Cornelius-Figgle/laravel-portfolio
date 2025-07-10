@@ -30,7 +30,6 @@ Route::get('/contact', function () {
 });
 
 Route::post('/contact', function (Request $request) {
-    // https://laravel.com/docs/12.x/mail#introduction
     dd($request);
 });
 
