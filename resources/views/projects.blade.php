@@ -1,7 +1,7 @@
 <!-- Use blade template for the page layout -->
 <x-page-template occurrance="{{ $occurrance }}">
     <!-- First strip -->
-    <div class="flex flex-col sm:flex-row m-5 p-5 gap-5 justify-start">
+    <div class="flex flex-col-reverse sm:flex-row m-5 p-5 gap-5 justify-start">
         <!-- LHS -->
         <div class="basis-1/2 flex flex-col gap-5">
             <!-- Title -->
