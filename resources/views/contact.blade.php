@@ -20,11 +20,14 @@
             <div x-data="cardListGenerator([
                 '<a href=&quot;https://github.com/Cornelius-Figgle&quot;>GitHub</a>',
                 '<a href=&quot;mailto:max@fullimage.net&quot;>Email</a>',
+                '<a href=&quot;www.linkedin.com/in/maxharrison08&quot;>LinkedIn</a>',
                 '<a href=&quot;https://instagram.com/Cornelius_Figgle&quot;>Instagram</a>'
             ])">
 
                 <div class="flex gap-2 flex-row flex-wrap" x-ref="divider" x-html="generateHtml"></div>
             </div>
+
+            <hr>
 
             <div>
                 <p>Feel free to contact me via the above links or the <span class="text-accent-2">email form</span> below.</p>

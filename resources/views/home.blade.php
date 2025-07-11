@@ -7,7 +7,10 @@
             <!-- First paragraph -->
             <p>Hello, I am <span class="text-accent-3">Max Harrison</span>, a Maths and Computer Science student from the UK.</p>
 
+            <hr>
+
             <!-- Skills cards (dynamically generated) -->
+            <div class="text-lg">Technical Skills</div>
             <div x-data="cardListGenerator([
                 'Python','Linux','Homelab','Laravel','PyQT','Virtualisation','Mathematics'
             ])">
@@ -15,7 +18,10 @@
                 <div class="flex gap-2 flex-row flex-wrap" x-html="generateHtml"></div>
             </div>
 
+            <hr>
+
             <!-- Experience timeline (dynamically generated) -->
+            <div class="text-lg">Relevant Experience</div>
             <div x-data="timelineGenerator([
                 {
                     'date': 'July 2025',
@@ -27,7 +33,7 @@
                 },
                 {
                     'date': 'June 2024',
-                    'text': 'Started a part time job as a Customer Assistant at <a href=&quot;https://marksandspencer.com&quot;>M&S</a>. This has built my teamwork skills, taught me how to interactive with customers professionally and given me experience in a corporate environment.'
+                    'text': 'Started a part time job as a Customer Assistant at <a href=&quot;https://marksandspencer.com&quot;>Marks and Spencer</a>. This has built my teamwork skills, taught me how to interactive with customers professionally and given me experience in a corporate environment.'
                 }
             ])">
 

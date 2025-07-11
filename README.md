@@ -60,7 +60,10 @@ cd laravel-portfolio
 
 ```bash
 cp .env.example .env
-nano .env  # change the MariaDB username and password to the values we used earlier
+
+# change the MariaDB username and password to the values we used earlier
+# also setup the SMTP server variables
+nano .env
 ```
 
 7. Install the NodeJS dependencies

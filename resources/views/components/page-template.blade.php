@@ -70,7 +70,7 @@
             }))
         </script>
     </head>
-    <body class="bg-bg text-text">
+    <body class="bg-bg text-text justify-self-center-safe xl:max-w-2/3">
         <!-- Navigation bar (dynamically generated) -->
         <div class="flex flex-row flex-1 gap-10 m-5 p-5 bg-fg justify-start" x-data="{
             pages: [
