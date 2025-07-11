@@ -50,7 +50,7 @@
     </head>
     <body class="bg-bg text-text">
         <!-- Navigation bar (dynamically generated) -->
-        <div  class="flex flex-row flex-1 gap-10 m-5 p-5 bg-fg justify-start" x-data="{
+        <div class="flex flex-row flex-1 gap-10 m-5 p-5 bg-fg justify-start" x-data="{
             pages: [
                 ['Home', '/'],
                 ['Projects', '/projects'],

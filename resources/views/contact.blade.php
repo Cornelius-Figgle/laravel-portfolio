@@ -30,6 +30,7 @@
                 <p class="mt-5 mb-5">Feel free to contact me via the above links or the <span class="text-accent-2">email form</span> below.</p>
             </div>
 
+            <!-- Contact form -->
             <div class="bg-fg p-5 mt-5">
                 <form action="/contact" method="POST" class="flex flex-col">
                     @csrf
