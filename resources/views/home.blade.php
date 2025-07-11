@@ -24,6 +24,10 @@
                 {
                     'date': 'April 2025',
                     'text': 'Work experience with the Weston College <a href=&quot;https://www.weston.ac.uk/digital-innovation-vacancies&quot;>Digital Innovation and Learning team</a> where I learnt how to build interactive education resources as well as gaining experience with graphic design, 360&deg; photography, and video editing. Myself and other students created <a href=&quot;https://thinglink.com/view/scene/1964658901018214886&quot;>this</a> digital art exhibition over the week.'
+                },
+                {
+                    'date': 'June 2024',
+                    'text': 'Started a part time job as a Customer Assistant at <a href=&quot;https://marksandspencer.com&quot;>M&S</a>. This has built my teamwork skills, taught me how to interactive with customers professionally and given me experience in a corporate environment.'
                 }
             ])">
 
