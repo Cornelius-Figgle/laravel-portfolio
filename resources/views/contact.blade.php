@@ -32,7 +32,10 @@
 
             <!-- Contact form -->
             <div class="bg-fg p-5">
-                <form action="/contact" method="POST" class="flex flex-col">
+                @if (request()->get('submitted'))
+                <p>Thank you, I will be in touch shortly.</p>
+                @else
+                <form action="/contact-form" method="POST" class="flex flex-col">
                     @csrf
                     <label for="name">Full name / Company name:</label><br>
                     <input type="text" id="name" name="name" class="border border-solid border-text p-2"><br>
@@ -42,6 +45,7 @@
                     <textarea id="message" name="message" class="border border-solid border-text p-2"></textarea><br>
                     <input type="submit" value="Submit" class="border border-solid p-2 mt-5 place-self-end border-text transition duration-200 ease-in-out hover:-translate-y-1">
                 </form>
+                @endif
             </div> 
         </div>
     </div>

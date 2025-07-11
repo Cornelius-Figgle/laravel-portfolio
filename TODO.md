@@ -1,6 +1,5 @@
 # TODO
 
-- [ ] Setup email sending on contact form
 - [ ] Add more content to 'Home'
+    - [ ] Titles
 - [ ] Add projects to 'Projects'
-- [ ] Improve image download speed (caching?)
