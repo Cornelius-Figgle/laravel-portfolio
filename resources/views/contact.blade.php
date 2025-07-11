@@ -3,7 +3,7 @@
     <!-- First strip -->
     <div class="flex flex-col sm:flex-row m-5 p-5 gap-5 justify-start">
         <!-- LHS -->
-        <div class="basis-1/2">
+        <div class="basis-1/2 flex flex-col gap-5">
             <div class="relative">
                 <img src="assets/allotment_apple_blossoms.jpg" alt="Photograph of Sand Bay at dusk.">
                 <div class="absolute text-fg text-right md:top-5 md:right-5 md:text-sm top-2 right-2 text-xs">
@@ -15,7 +15,7 @@
         </div>
 
         <!-- RHS -->
-        <div class="basis-1/2">
+        <div class="basis-1/2 flex flex-col gap-5">
             <!-- Link cards (dynamically generated) -->
             <div x-data="cardListGenerator([
                 '<a href=&quot;https://github.com/Cornelius-Figgle&quot;>GitHub</a>',
@@ -27,11 +27,11 @@
             </div>
 
             <div>
-                <p class="mt-5 mb-5">Feel free to contact me via the above links or the <span class="text-accent-2">email form</span> below.</p>
+                <p>Feel free to contact me via the above links or the <span class="text-accent-2">email form</span> below.</p>
             </div>
 
             <!-- Contact form -->
-            <div class="bg-fg p-5 mt-5">
+            <div class="bg-fg p-5">
                 <form action="/contact" method="POST" class="flex flex-col">
                     @csrf
                     <label for="name">Full name / Company name:</label><br>

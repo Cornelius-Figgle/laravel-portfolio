@@ -22,28 +22,50 @@
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
         <script>
-            // Underlines an item in the navigation bar
+            // Underlines the current page in the navigation bar
             Alpine.data('locationIndicator', () => ({
                 getUnderline(route) {
                     let isUnderlined = window.location.pathname == route                  
 
-                    return isUnderlined ? 'underline decoration-double' : 'no-underline';
+                    return isUnderlined ? 'underline decoration-double' : 'no-underline'
                 }
             }))
 
             // Produces a list of colourful cards
             Alpine.data('cardListGenerator', (terms) => ({
-                init() {
+                generateHtml() {
                     this.generatedHtml = ''
 
+                    // Alternate colours
                     for (const term of terms) {
-                        // Hard coding possible Tailwind classes so that the relavent CSS is compiled 
+                        // Hard coding the dynamic Tailwind classes so that the relavent CSS is compiled 
                         // text-accent-1 text-accent-2 text-accent-3 text-text
                         this.generatedHtml += `<div class="text-accent-${(terms.indexOf(term)%3)+1} border border-solid p-2 border-text hover:text-text transition duration-200 ease-in-out hover:-translate-y-1">${term}</div>`
                     }
-                },
+
+                    return this.generatedHtml
+                }
+            }))
+
+            // Produces a time line of events
+            Alpine.data('timelineGenerator', (events) => ({
                 generateHtml() {
-                    return this.generatedHtml;
+                    this.generatedHtml = ''
+
+                    // Colours the links in `event.text` 
+                    for (const event of events) {
+                        // Hard coding the dynamic Tailwind classes so that the relavent CSS is compiled 
+                        // text-accent-1 text-accent-2 text-accent-3
+                        this.generatedHtml += `
+                            <li class="relative flex flex-col">
+                                <div class="absolute -left-7.5 top-1 h-0 border border-text bg-bg rounded-full p-2"></div>
+                                <time class="italic">${event.date}</time>
+                                <p>${event.text.split('<a').join(`<a class="text-accent-${(events.indexOf(event)%3)+1}"`)}</p>
+                            </li>
+                        `
+                    }
+
+                    return this.generatedHtml
                 }
             }))
         </script>
