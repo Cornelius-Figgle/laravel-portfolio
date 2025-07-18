@@ -2,7 +2,7 @@
 
 This is my personal website/portfolio built in [Laravel](https://laravel.com/) with [TailwindCSS](https://tailwindcss.com/) and [Alpine.JS](https://alpinejs.dev/).
 
-It is hosted on ____ and available [here]().
+It is hosted on [DigitalOcean](https://digitalocean.com) and available [here](https://maxharrison.dev).
 
 ## Setup
 
@@ -15,36 +15,18 @@ It is hosted on ____ and available [here]().
 ```bash
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y nodejs npm mariadb-server redis curl git gh
-sudo systemctl enable redis-server
-sudo systemctl start redis-server
-sudo systemctl enable mysqld
-sudo systemctl start mysqld
+sudo apt install -y nodejs npm curl git gh
 cd ~
 ```
 
-3. Setup [MariaDB](https://mariadb.org/)
-
-```bash
-sudo mysql -u root
-```
-
-```sql
-SET GLOBAL sql_mode='';
-CREATE USER 'maria'@'localhost' IDENTIFIED BY 'password';  -- change as desired
-GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost';
-FLUSH PRIVILEGES;
-quit
-```
-
-4. Install [PHP](https://php.net/), [Composer](https://getcomposer.org/) (the PHP package manager), and the Laravel installer
+3. Install [PHP](https://php.net/), [Composer](https://getcomposer.org/) (the PHP package manager), and the Laravel installer
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.4)"
 composer global require laravel/installer
 ```
 
-5. Setup [Git](https://git-scm.com) and [Github CLI](https://cli.github.com/) the website repository
+4. Setup [Git](https://git-scm.com) and [Github CLI](https://cli.github.com/) the website repository
 
 ```bash
 gh auth login  # Accept defaults, select "Login with web browser" and go to the link in your browser to sign in
@@ -56,38 +38,28 @@ git clone https://github.com/Cornelius-Figgle/laravel-portfolio
 cd laravel-portfolio
 ```
 
-6. Configure the `.env` file
+5. Configure the `.env` file
 
 ```bash
 cp .env.example .env
 
-# change the MariaDB username and password to the values we used earlier
-# also setup the SMTP server variables
+# setup the SMTP server variables
 nano .env
 ```
 
-7. Install the NodeJS dependencies
+6. Install the NodeJS dependencies
 
 ```bash
 npm install && npm run build
 ```
 
-8. Create the database and finish setting it up
-
-```bash
-mysql -u maria -p
-```
-
-```sql
-CREATE DATABASE `example-app`;  -- yes, I know this is the default name, leave me alone
-quit
-```
+7. Setup the SQLite database
 
 ```bash
 php artisan migrate
 ```
 
-9. Start the server
+8. Start the server
 
 ```bash
 composer run dev
